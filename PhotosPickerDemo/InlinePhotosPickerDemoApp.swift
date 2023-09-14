@@ -5,16 +5,14 @@ Abstract:
 The sample's app entry point.
 */
 
+import ComposableArchitecture
 import SwiftUI
 
 /// A main entry point for the app.
-@main
-struct InlinePhotosPickerDemoApp: App {
+@main struct InlinePhotosPickerDemoApp: App {
 
-    /// A scene for the app's main window group.
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+  /// A scene for the app's main window group.
+  var body: some Scene {
+    WindowGroup { ContentView(store: Store(initialState: Content.State(), reducer: { Content() })) }
+  }
 }
